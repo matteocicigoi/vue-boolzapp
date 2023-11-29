@@ -19,6 +19,9 @@ body{
     align-items: center;
 }
 
+.direction-column{
+    flex-direction: column;
+}
 .user-container{
     width: 100%;
     padding: 10px;

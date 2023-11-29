@@ -17,7 +17,7 @@
 <body>
     <div class="container flex">
         <!-- Contenitore utenti -->
-        <div class="box left-box">
+        <div class="box left-box flex direction-column">
             <!-- Utente -->
             <header class="user-container flex space-between align-center">
                 <div class="user-info flex align-center">
@@ -33,7 +33,7 @@
                 </div>
             </header>
             <!-- Fine Utente-->
-            <main>
+            <main class="flex direction-column">
                 <!-- Notifiche -->
                 <div class="user-container notifications flex space-between align-center">
                     <div class="user-info flex align-center">
@@ -55,6 +55,44 @@
                     <input type="text" id="search-chat" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <!-- Fine Ricerca -->
+                <!-- Utenti -->
+                <div class="user">
+                    <ul>
+                        <li class="user-container flex space-between align-center">
+                            <div class="user-info flex">
+                                <img src="img/avatar_1.jpg" alt="user">
+                                <div>
+                                    <h3>Michele</h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="user-container flex space-between align-center">
+                            <div class="user-info flex">
+                                <img src="img/avatar_2.jpg" alt="user">
+                                <div>
+                                    <h3>Fabio</h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="user-container flex space-between align-center">
+                            <div class="user-info flex">
+                                <img src="img/avatar_3.jpg" alt="user">
+                                <div>
+                                    <h3>Samuele</h3>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="user-container flex space-between align-center">
+                            <div class="user-info flex">
+                                <img src="img/avatar_4.jpg" alt="user">
+                                <div>
+                                    <h3>Luisa</h3>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Fine Utenti -->
             </main>
         </div>
         <!-- Fine Contenitore utenti -->

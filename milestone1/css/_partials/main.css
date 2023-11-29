@@ -13,6 +13,7 @@
 .left-box{
     width: var(--size-left);
     background-color: red;
+    overflow: hidden;
 }
 
 .right-box{
@@ -25,6 +26,7 @@
 
 .left-box main{
     background-color: var(--bg-left);
+    height: 100%;
 }
 
 /* notifiche */
@@ -56,4 +58,16 @@
 
 .left-box .search input::placeholder{
     font-size: 16px;
+}
+
+.left-box .user{
+    background-color: var(--bg-container);
+    overflow-y: scroll;
+    height: 100%;
+
+}
+
+.left-box .user .user-container{
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px;
 }
