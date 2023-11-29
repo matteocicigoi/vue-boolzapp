@@ -1,0 +1,24 @@
+/* main */
+.container{
+    background-color: var(--bg-container);
+    max-width: 1400px;
+    height: calc(100vh - 35px);
+    margin: 0 auto;
+}
+
+.box{
+    height: 100%;
+}
+
+.left-box{
+    width: var(--size-left);
+    background-color: red;
+}
+
+.right-box{
+    width: var(--size-right);
+}
+
+.left-box header{
+    background-color: var(--bg-header);
+}
