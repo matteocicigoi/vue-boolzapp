@@ -18,7 +18,12 @@
 .right-box{
     width: var(--size-right);
 }
-
+/* left box */
 .left-box header{
     background-color: var(--bg-header);
+}
+
+/* notifiche */
+.left-box .notifications{
+    background-color: var(--bg-notifications);
 }

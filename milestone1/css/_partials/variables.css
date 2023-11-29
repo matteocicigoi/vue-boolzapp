@@ -5,9 +5,12 @@
     --bg-bottom: #DBDAD5;
     --bg-container: white;
     --bg-header: #EAEAEA;
+    --bg-notifications: #8EDAFC;
 
     --text-secondary: #B1B1B1;
+    --text-notifications: #3B7897;
 
     --size-left: 484px;
     --size-right: calc(100% - var(--size-left));
+    --size-image: 60px;
 }
