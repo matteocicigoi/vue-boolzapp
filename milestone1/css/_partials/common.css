@@ -6,7 +6,7 @@ body{
     height: 100vh;
     padding: 20px 0 15px;
 }
-
+/* flex */
 .flex{
     display: flex;
 }
@@ -22,6 +22,7 @@ body{
 .direction-column{
     flex-direction: column;
 }
+/* user */
 .user-container{
     width: 100%;
     padding: 10px;
