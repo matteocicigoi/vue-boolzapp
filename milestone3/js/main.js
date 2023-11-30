@@ -185,8 +185,43 @@ createApp({
     }
   },
   methods: {
+    // seleziona la chat in base al indice
     selectChat(index){
         this.currentChat = index;
+    },
+    // invia un messaggio
+    sendMessage(type){
+        if(type !== 'send'){
+            this.contacts[this.currentChat].messages.push({
+                date: this.dateFn('full'),
+                message: 'ok',
+                status: 'received'
+            });
+        }else{
+            this.contacts[this.currentChat].messages.push({
+                date: this.dateFn('full'),
+                message: this.textMessage,
+                status: 'sent'
+            });
+            this.textMessage = '';
+            // risposta dopo 1 secondo
+            setTimeout(this.sendMessage, 1000);
+        }
+    },
+    // data
+    dateFn(type){
+        if(type === 'full'){
+            // se type è uguale a full genera una data
+            const date = new Date;
+            return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+        }
+        // recupera i l'ora e i minuti
+        const time = [];
+        for(let i = 11; i < 16; i++){
+            time.push(type[i]);
+        }
+        return time.join('');
     }
 }
 }).mount('#app');
+//'10/01/2020 15:30:55'

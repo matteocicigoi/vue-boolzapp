@@ -94,14 +94,14 @@
             <ul class="main flex direction-column">
                     <li v-for="message in contacts[currentChat].messages" :class="{ send : message.status === 'sent'}">
                         <p>{{ message.message}}</p>
-                        <span>12:00</span>
+                        <span>{{ dateFn(message.date) }}</span>
                     </li>
             </ul>
             <!-- Fine Chat -->
             <!-- Messaggio -->
             <footer class="flex align-center space-between">
                 <div class="icon"><i class="fa-regular fa-face-smile"></i></div>
-                <div class="input-message"><input type="text" placeholder="Scrivi un messaggio" v-model="textMessage"></div>
+                <div class="input-message"><input type="text" placeholder="Scrivi un messaggio" v-model="textMessage" @keyup.enter="sendMessage('send')"></div>
                 <div class="icon"><i class="fa-solid fa-microphone"></i></div>
             </footer>
             <!-- Fine Messaggio -->
