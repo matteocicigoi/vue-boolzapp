@@ -1,0 +1,23 @@
+/* Variables */
+
+:root{
+    --bg-top: #009788;
+    --bg-bottom: #DBDAD5;
+    --bg-container: #ffffff;
+    --bg-header: #EAEAEA;
+    --bg-notifications: #8EDAFC;
+    --bg-left: #FDF9F8;
+    --bg-footer: #F3EEEA;
+    --bg-message-send: #D5F9BA;
+
+    --border: #F5F5F5;
+    --border-left-c: #D7D7D7;
+
+    --text-secondary: #B1B1B1;
+    --text-notifications: #3B7897;
+    --text-tertiary: #707072;
+
+    --size-left: 484px;
+    --size-right: calc(100% - var(--size-left));
+    --size-image: 60px;
+}
