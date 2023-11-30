@@ -1,4 +1,8 @@
 /* main */
+[v-cloak] {
+    display: none;
+}
+
 .container{
     background-color: var(--bg-container);
     max-width: 1400px;
@@ -84,17 +88,32 @@
     height: 100%;
     overflow-y: scroll;
     padding: 55px 100px 0;
+    list-style-type: none;
 }
 
-.right-box .main div{
+.right-box .main li{
     background-color: var(--bg-container);
     width: 313px;
     margin-bottom: 10px;
+    text-align: right;
+    border-radius: 10px;
+    padding: 5px;
 }
 
-.right-box .main div.send{
+.right-box .main li.send{
     background-color: var(--bg-message-send);
     align-self: end;
+}
+
+.right-box .main p{
+    text-align: left;
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+.right-box .main span{
+    color: var(--text-secondary);
+    font-size: 12px;
 }
 
 /* input di testo */
