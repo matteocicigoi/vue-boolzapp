@@ -56,7 +56,7 @@ sendMessage('send'){
     }
 }
 
-sendMessage('send'){
+sendMessage(){
     {
         date: this.dateFn(false, 'full'),
         message: 'ok',
