@@ -196,9 +196,10 @@ createApp({
     // invia un messaggio
     sendMessage(type){
         if(type !== 'send'){
+            const messArr = ['Ciao', 'ok', 'si'];
             this.contacts[this.currentChat].messages.push({
                 date: this.dateFn(false, 'full'),
-                message: 'ok',
+                message: messArr[this.random(0, messArr.length - 1)],
                 status: 'received'
             });
         }else{
@@ -276,13 +277,19 @@ createApp({
         };
         return `Ultimo accesso il ${dateMessage}`;
     },
+    // menu
     menuMessage(index){
         this.message = `${this.currentChat}${index}`;
 
     },
+    // elimina il messaggio
     deleteMessage(index){
         this.contacts[this.currentChat].messages.splice(index, 1);
         this.message = '';
+    },
+    // genera un numero
+    random(numberMin, numberMax){
+        return(Math.floor(Math.random() * (numberMax - numberMin + 1)) + numberMin);
     }
 }
 }).mount('#app');
