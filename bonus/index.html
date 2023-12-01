@@ -112,7 +112,10 @@
             <footer class="flex align-center space-between">
                 <div class="icon"><i class="fa-regular fa-face-smile"></i></div>
                 <div class="input-message"><input type="text" placeholder="Scrivi un messaggio" v-model="textMessage" @keyup.enter="sendMessage('send')"></div>
-                <div class="icon"><i class="fa-solid fa-microphone"></i></div>
+                <div class="icon">
+                    <i v-if="!textMessage" class="fa-solid fa-microphone"></i>
+                    <i v-else @click="sendMessage('send')" class="fa-solid fa-paper-plane"></i>
+                </div>
             </footer>
             <!-- Fine Messaggio -->
 
