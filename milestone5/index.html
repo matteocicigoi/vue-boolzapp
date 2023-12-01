@@ -59,7 +59,7 @@
             <!-- Utenti -->
             <div class="user">
                 <ul>
-                    <li v-for="(user, index) in findUser()"  v-show="user.visible" class="user-container flex space-between align-center" @click="selectChat(index)">
+                    <li v-for="(user, index) in findUser()"  v-show="user.visible" class="user-container flex space-between align-center" :class="{ active : currentChat === index }" @click="selectChat(index)">
                         <div class="user-info flex">
                             <img :src="user.avatar" alt="user">
                             <div>
