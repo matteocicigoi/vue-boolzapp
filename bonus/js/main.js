@@ -185,7 +185,8 @@ createApp({
         searchUser: '',
         arrow: '<i class="fa-solid fa-chevron-down"></i>',
         message: '',
-        infoUser: ''
+        infoUser: '',
+        chat: ''
     }
   },
   methods: {
@@ -193,6 +194,7 @@ createApp({
     selectChat(index){
         this.currentChat = index;
         this.message = '';
+        this.chat = '';
     },
     // invia un messaggio
     sendMessage(type){
@@ -293,10 +295,18 @@ createApp({
         this.message = `${this.currentChat}${index}`;
 
     },
+    menuChat(){
+        this.chat = this.currentChat;
+    },
     // elimina il messaggio
-    deleteMessage(index){
-        this.contacts[this.currentChat].messages.splice(index, 1);
-        this.message = '';
+    deleteMessage(index, type){
+        if(type === 'all'){
+            this.contacts.splice(this.currentChat, 1);
+            this.chat = '';
+        }else{
+            this.contacts[this.currentChat].messages.splice(index, 1);
+            this.message = '';
+        }
     },
     // genera un numero
     random(numberMin, numberMax){

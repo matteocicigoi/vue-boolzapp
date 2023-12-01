@@ -97,6 +97,10 @@
 
 /* right box */
 /* messaggi */
+.right-box header{
+    position: relative;
+}
+
 .right-box .main{
     background-image: url("../../img/mine.jpg");
     width: 100%;
@@ -136,7 +140,7 @@
     padding-right: 5px;
 }
 
-.right-box .main .menu{
+.right-box .menu{
     background-color: var(--bg-container);
     position: absolute;
     z-index: 2;
@@ -145,7 +149,13 @@
     width: auto;
     box-shadow: 1px 1px 5px rgb(49, 49, 49);
 }
-.right-box .main .menu li{
+
+.right-box header .menu{
+    top: 70px;
+    right: 20px;
+}
+
+.right-box .menu li{
     list-style-type: none;
     cursor: pointer;
     text-align: left;
@@ -155,7 +165,7 @@
     padding: 10px 20px;
     border-radius: 0;
 }
-.right-box .main .menu li:hover{
+.right-box .menu li:hover{
     background-color: var(--bg-active);
 }
 /* input di testo */
