@@ -95,6 +95,9 @@
     padding: 10px 20px;
 }
 
+.left-box .user .user-container:last-child{
+    border-bottom: none;
+}
 /* right box */
 /* messaggi */
 .right-box .main{
