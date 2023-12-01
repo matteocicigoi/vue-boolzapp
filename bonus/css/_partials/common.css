@@ -76,3 +76,27 @@ i,
 .user li{
     cursor: pointer;
 }
+
+/* scrollbar */
+.light ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: var(--bg-container); 
+}
+ 
+.light ::-webkit-scrollbar-thumb {
+    background: var(--bg-active); 
+}  
+.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--bg-container); 
+}
+ 
+.dark ::-webkit-scrollbar-thumb {
+    background: var(--bg-message-send); 
+}  

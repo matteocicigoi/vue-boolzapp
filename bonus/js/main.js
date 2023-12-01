@@ -186,7 +186,9 @@ createApp({
         arrow: '<i class="fa-solid fa-chevron-down"></i>',
         message: '',
         infoUser: '',
-        chat: ''
+        chat: '',
+        fontS: true,
+        themeS: true
     }
   },
   methods: {
@@ -315,6 +317,21 @@ createApp({
     // reimposta l'accesso
     resetAccess(){
         this.infoUser = '';
+    },
+    fontFn(){
+        this.fontS = !this.fontS;
+    },
+    themeFn(){
+        this.themeS = !this.themeS;
+    },
+    selectThemeFont(){
+        let theme;
+        let font;
+        if(this.themeS === true)theme = 'light';
+        if(this.themeS === false)theme = 'dark';
+        if(this.fontS === true)font = 'normal';
+        if(this.fontS === false)font = 'big';
+        return `${theme} ${font}`;
     }
 }
 }).mount('#app');

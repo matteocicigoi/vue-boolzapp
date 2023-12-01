@@ -17,11 +17,12 @@
 <body>
     <div id="app" v-cloak class="container flex">
         <div class="fontsize-themes">
-            <i class="fa-solid fa-text-height"></i>
-            <i class="fa-solid fa-text-height"></i>
+            <i v-if="themeS === true" @click="themeFn" class="fa-solid fa-sun"></i>
+            <i v-else @click="themeFn" class="fa-solid fa-moon"></i>
+            <i @click="fontFn" class="fa-solid fa-text-height"></i>
         </div>
         <!-- Contenitore utenti -->
-        <div class="box left-box flex direction-column">
+        <div class="box left-box flex direction-column" :class="selectThemeFont()">
             <!-- Utente -->
             <header class="user-container flex space-between align-center">
                 <div class="user-info flex align-center">
@@ -81,7 +82,7 @@
         </div>
         <!-- Fine Contenitore utenti -->
         <!-- Contenitore chat -->
-        <div class="box right-box flex direction-column">
+        <div class="box right-box flex direction-column" :class="selectThemeFont()">
             <!-- Utente -->
             <header class="user-container flex space-between align-center">
                 <div class="user-info flex align-center">
