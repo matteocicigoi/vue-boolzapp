@@ -238,7 +238,18 @@ createApp({
     },
     // ricerca
     findUser(){
-        return this.contacts.filter((user) => user.name.toLowerCase().includes(this.searchUser.toLowerCase()));
+        return this.contacts.map((user) => {
+            let visible;
+            if(user.name.toLowerCase().includes(this.searchUser.toLowerCase())){
+                visible = true;
+            }else{
+                visible = false;
+            }
+            return {
+                ...user,
+                visible
+            };
+        });
     },
     // ultimo accesso
     lastAccess(){
