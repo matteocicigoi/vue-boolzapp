@@ -94,7 +94,9 @@
     border-bottom: 1px solid var(--border);
     padding: 10px 20px;
 }
-
+.left-box .user .user-container:last-child{
+    border-bottom: none;
+}
 /* right box */
 /* messaggi */
 .right-box header{
@@ -193,4 +195,15 @@
     flex-grow: 1;
     text-align: center;
     font-size: var(--size-icons-input);
+}
+
+/* font size e tama */
+.fontsize-themes{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10;
+}
+.fontsize-themes i{
+    margin: 10px;
 }

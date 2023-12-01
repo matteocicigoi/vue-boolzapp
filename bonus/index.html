@@ -16,6 +16,10 @@
 </head>
 <body>
     <div id="app" v-cloak class="container flex">
+        <div class="fontsize-themes">
+            <i class="fa-solid fa-text-height"></i>
+            <i class="fa-solid fa-text-height"></i>
+        </div>
         <!-- Contenitore utenti -->
         <div class="box left-box flex direction-column">
             <!-- Utente -->
@@ -101,7 +105,7 @@
             <!-- Fine Utente-->
             <!-- Chat -->
             <ul class="main flex direction-column">
-                    <li v-for="(message, index) in contacts[currentChat].messages" :class="{ send : message.status === 'sent'}">
+                    <li v-for="(message, index) in contacts[currentChat].messages" :class="{ send : message.status === 'sent', last : index === contacts[currentChat].messages.length - 1}">
                         <p>{{ message.message}}</p>
                         <span v-if="message.status === 'sent'" v-html='arrow' @click="menuMessage(index)"></span><span>{{ dateFn(message.date) }}</span>
                         <div class="menu" v-if="`${currentChat}${index}` === this.message">
