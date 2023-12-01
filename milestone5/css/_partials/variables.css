@@ -1,6 +1,7 @@
 /* Variables */
 
 :root{
+    /* sfondi */
     --bg-top: #009788;
     --bg-bottom: #DBDAD5;
     --bg-container: #ffffff;
@@ -11,15 +12,27 @@
     --bg-message-send: #D5F9BA;
     --bg-active: #E9EBEB;
 
+    /* bordi */
     --border: #F5F5F5;
     --border-left-c: #D7D7D7;
 
+    /* colore testo */
     --text-primary: #000000;
     --text-secondary: #B1B1B1;
     --text-notifications: #3B7897;
     --text-tertiary: #707072;
 
+    /* dimensioni */
     --size-left: 484px;
     --size-right: calc(100% - var(--size-left));
     --size-image: 60px;
+
+    /* dimensioni testo */
+    --size-f-icon-notification: 1.375rem;
+    --size-f-name-user: 1rem;
+    --size-f-message-user: .8125rem;
+    --size-f-icons: 1.4375rem;
+    --size-f-time: .75rem;
+    --size-f-text: .875rem;
+    --size-icons-input: 1.5625rem;
 }

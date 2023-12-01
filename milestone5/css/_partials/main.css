@@ -39,7 +39,7 @@
 }
 .left-box .user-info span{
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: var(--size-f-text);
     line-height: 30px;
 
 }
@@ -80,7 +80,7 @@
 }
 
 .left-box .search input::placeholder{
-    font-size: 16px;
+    font-size: var(--size-f-name-user);
 }
 /* utenti */
 .left-box .user{
@@ -129,7 +129,7 @@
 
 .right-box .main span{
     color: var(--text-secondary);
-    font-size: 12px;
+    font-size: var(--size-f-time);
 }
 
 .right-box .main span i{
@@ -182,5 +182,5 @@
 .right-box .icon{
     flex-grow: 1;
     text-align: center;
-    font-size: 25px;
+    font-size: var(--size-icons-input);
 }

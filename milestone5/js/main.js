@@ -278,7 +278,6 @@ createApp({
 
     },
     deleteMessage(index){
-        console.log(index);
         this.contacts[this.currentChat].messages.splice(index, 1);
         this.message = '';
     }
