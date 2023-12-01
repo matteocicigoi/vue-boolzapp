@@ -4,23 +4,6 @@
     /* sfondi */
     --bg-top: #009788;
     --bg-bottom: #DBDAD5;
-    --bg-container: #ffffff;
-    --bg-header: #EAEAEA;
-    --bg-notifications: #8EDAFC;
-    --bg-left: #FDF9F8;
-    --bg-footer: #F3EEEA;
-    --bg-message-send: #D5F9BA;
-    --bg-active: #E9EBEB;
-
-    /* bordi */
-    --border: #F5F5F5;
-    --border-left-c: #D7D7D7;
-
-    /* colore testo */
-    --text-primary: #000000;
-    --text-secondary: #B1B1B1;
-    --text-notifications: #3B7897;
-    --text-tertiary: #707072;
 
     /* dimensioni */
     --size-left: 484px;
@@ -54,8 +37,6 @@
 .light{
 /* sfondi */
 --bg-img: url("../../img/mine.jpg");
---bg-top: #009788;
---bg-bottom: #DBDAD5;
 --bg-container: #ffffff;
 --bg-header: #EAEAEA;
 --bg-notifications: #8EDAFC;
@@ -78,8 +59,6 @@
 .dark{
 /* sfondi */
 --bg-img: url("../../img/dark.jpg");
---bg-top: #009788;
---bg-bottom: #DBDAD5;
 --bg-container: #0c1317;
 --bg-header: #222e35;
 --bg-notifications: #222e35;
