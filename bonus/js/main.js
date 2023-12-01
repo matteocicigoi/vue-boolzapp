@@ -184,7 +184,8 @@ createApp({
         textMessage: '',
         searchUser: '',
         arrow: '<i class="fa-solid fa-chevron-down"></i>',
-        message: ''
+        message: '',
+        infoUser: ''
     }
   },
   methods: {
@@ -197,11 +198,13 @@ createApp({
     sendMessage(type){
         if(type !== 'send'){
             const messArr = ['Ciao', 'ok', 'si'];
+            this.infoUser = 'online';
             this.contacts[this.currentChat].messages.push({
                 date: this.dateFn(false, 'full'),
                 message: messArr[this.random(0, messArr.length - 1)],
                 status: 'received'
             });
+            setTimeout(this.resetAccess, 2000);
         }else{
             if(this.textMessage.trim() === ''){
                 return;
@@ -213,6 +216,7 @@ createApp({
             });
             this.textMessage = '';
             // risposta dopo 1 secondo
+            this.infoUser = 'sta scrivendo...';
             setTimeout(this.sendMessage, 1000);
         }
     },
@@ -260,6 +264,11 @@ createApp({
     },
     // ultimo accesso
     lastAccess(){
+        if(this.infoUser === 'online'){
+            return this.infoUser;
+        }else if(this.infoUser === 'sta scrivendo...'){
+            return this.infoUser;
+        }
         const messages = this.contacts[this.currentChat].messages;
         let i = messages.length - 1;
         let  access = null;
@@ -272,10 +281,12 @@ createApp({
         }
         const date = new Date;
         const dateMessage = this.dateFn(access, 'day month year')
-        if(`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}` === dateMessage){
-            return `Ultimo accesso oggi alle ${this.dateFn(access)}`;
+        if(`${this.addZero(date.getDate())}/${this.addZero(date.getMonth())}/${date.getFullYear()}` === dateMessage){
+            this.infoUser = `Ultimo accesso oggi alle ${this.dateFn(access)}`
+            return this.infoUser;
         };
-        return `Ultimo accesso il ${dateMessage}`;
+        this.infoUser = `Ultimo accesso il ${dateMessage}`;
+        return this.infoUser;
     },
     // menu
     menuMessage(index){
@@ -290,6 +301,10 @@ createApp({
     // genera un numero
     random(numberMin, numberMax){
         return(Math.floor(Math.random() * (numberMax - numberMin + 1)) + numberMin);
+    },
+    // reimposta l'accesso
+    resetAccess(){
+        this.infoUser = '';
     }
 }
 }).mount('#app');
