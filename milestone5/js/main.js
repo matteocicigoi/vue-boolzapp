@@ -182,13 +182,16 @@ createApp({
         contacts,
         currentChat: 0,
         textMessage: '',
-        searchUser: ''
+        searchUser: '',
+        arrow: '<i class="fa-solid fa-chevron-down"></i>',
+        message: ''
     }
   },
   methods: {
     // seleziona la chat in base al indice
     selectChat(index){
         this.currentChat = index;
+        this.message = '';
     },
     // invia un messaggio
     sendMessage(type){
@@ -269,6 +272,15 @@ createApp({
             return `Ultimo accesso oggi alle ${this.dateFn(access)}`;
         };
         return `Ultimo accesso il ${dateMessage}`;
+    },
+    menuMessage(index){
+        this.message = `${this.currentChat}${index}`;
+
+    },
+    deleteMessage(index){
+        console.log(index);
+        this.contacts[this.currentChat].messages.splice(index, 1);
+        this.message = '';
     }
 }
 }).mount('#app');

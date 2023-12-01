@@ -96,9 +96,15 @@
             <!-- Fine Utente-->
             <!-- Chat -->
             <ul class="main flex direction-column">
-                    <li v-for="message in contacts[currentChat].messages" :class="{ send : message.status === 'sent'}">
+                    <li v-for="(message, index) in contacts[currentChat].messages" :class="{ send : message.status === 'sent'}">
                         <p>{{ message.message}}</p>
-                        <span>{{ dateFn(message.date) }}</span>
+                        <span v-if="message.status === 'sent'" v-html='arrow' @click="menuMessage(index)"></span><span>{{ dateFn(message.date) }}</span>
+                        <div class="menu" v-if="`${currentChat}${index}` === this.message">
+                            <ul>
+                                <li>Message info</li>
+                                <li @click="deleteMessage(index)">Delete message</li>
+                            </ul>
+                        </div>
                     </li>
             </ul>
             <!-- Fine Chat -->
