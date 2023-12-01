@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Fine Google Fonts -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Fine Font Awesome -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app" v-cloak class="container flex">
+        <!-- Contenitore utenti -->
+        <div class="box left-box flex direction-column">
+            <!-- Utente -->
+            <header class="user-container flex space-between align-center">
+                <div class="user-info flex align-center">
+                    <img :src="user[0].avatar" alt="user">
+                    <div>
+                        <h3>{{ user[0].name }}</h3>
+                    </div>
+                </div>
+                <div class="right-info">
+                    <i class="fa-solid fa-circle-notch"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </header>
+            <!-- Fine Utente-->
+            <!-- Notifiche -->
+            <div class="user-container notifications flex space-between align-center">
+                <div class="user-info flex align-center">
+                    <div class="circle">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div>
+                        <h3>Ricevi notifiche di nuovi messaggi</h3>
+                        <span>Attiva notifiche desktop</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Fine Notifiche-->
+
+            <!-- Ricerca -->
+            <div class="search flex align-center">
+                <label for="search-chat">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <input type="text" id="search-chat" placeholder="Cerca o inizia una nuova chat" v-model="searchUser">
+            </div>
+            <!-- Fine Ricerca -->
+
+            <!-- Utenti -->
+            <div class="user">
+                <ul>
+                    <li v-for="(user, index) in findUser()"  v-show="user.visible" class="user-container flex space-between align-center" :class="{ active : currentChat === index }" @click="selectChat(index)">
+                        <div class="user-info flex">
+                            <img :src="user.avatar" alt="user">
+                            <div>
+                                <h3>{{ user.name }}</h3>
+                                <span>{{ user.messages[user.messages.length - 1].message }}</span><!--Ultimo messaggio inviato-->
+                            </div>
+                        </div>
+                        <div class="time right-info">
+                            <span>{{ dateFn(user.messages[user.messages.length - 1].date) }}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- Fine Utenti -->
+        </div>
+        <!-- Fine Contenitore utenti -->
+        <!-- Contenitore chat -->
+        <div class="box right-box flex direction-column">
+            <!-- Utente -->
+            <header class="user-container flex space-between align-center">
+                <div class="user-info flex align-center">
+                    <img :src="contacts[currentChat].avatar" alt="user">
+                    <div>
+                        <h3>{{ contacts[currentChat].name }}</h3>
+                        <span>{{ lastAccess() }}</span>
+                    </div>
+                </div>
+                <div class="right-info">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-paperclip"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </header>
+            <!-- Fine Utente-->
+            <!-- Chat -->
+            <ul class="main flex direction-column">
+                    <li v-for="(message, index) in contacts[currentChat].messages" :class="{ send : message.status === 'sent'}">
+                        <p>{{ message.message}}</p>
+                        <span v-if="message.status === 'sent'" v-html='arrow' @click="menuMessage(index)"></span><span>{{ dateFn(message.date) }}</span>
+                        <div class="menu" v-if="`${currentChat}${index}` === this.message">
+                            <ul>
+                                <li>Message info</li>
+                                <li @click="deleteMessage(index)">Delete message</li>
+                            </ul>
+                        </div>
+                    </li>
+            </ul>
+            <!-- Fine Chat -->
+            <!-- Messaggio -->
+            <footer class="flex align-center space-between">
+                <div class="icon"><i class="fa-regular fa-face-smile"></i></div>
+                <div class="input-message"><input type="text" placeholder="Scrivi un messaggio" v-model="textMessage" @keyup.enter="sendMessage('send')"></div>
+                <div class="icon"><i class="fa-solid fa-microphone"></i></div>
+            </footer>
+            <!-- Fine Messaggio -->
+
+        </div>
+        <!-- Fine Contenitore chat -->
+    </div>
+    <!-- VueJs -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Fine VueJS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
