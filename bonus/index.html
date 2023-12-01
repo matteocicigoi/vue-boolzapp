@@ -90,7 +90,12 @@
                 <div class="right-info">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-solid fa-paperclip"></i>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"  @click="menuChat()"></i>
+                </div>
+                <div v-if="currentChat === this.chat" class="menu">
+                    <ul>
+                        <li @click="deleteMessage(false, 'all')">Elimina chat</li>
+                    </ul>
                 </div>
             </header>
             <!-- Fine Utente-->
